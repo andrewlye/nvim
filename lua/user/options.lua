@@ -28,8 +28,8 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.breakindent = true
 
 -- indent width
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 
 -- Save undo history
 vim.opt.undofile = true

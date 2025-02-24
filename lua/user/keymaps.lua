@@ -24,12 +24,6 @@ vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split horizontal' })
 vim.keymap.set('n', '<leader>se', '<C-w>=', { desc = 'Equalize windows' })
 vim.keymap.set('n', '<leader>sx', ':close<CR>', { desc = 'Close active window' })
 
--- Better window navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Navigate left' })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Navigate down' })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Navitage up' })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Navigate right' })
-
 -- Resize with arrows
 vim.keymap.set('n', '<C-Up>', ':resize +3<CR>', { desc = 'Increase window size' })
 vim.keymap.set('n', '<C-Down>', ':resize -3<CR>', { desc = 'Decrease window size' })
