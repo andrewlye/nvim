@@ -31,11 +31,11 @@ vim.keymap.set('n', '<C-Left>', ':vertical resize -3<CR>', { desc = 'Decrease wi
 vim.keymap.set('n', '<C-Right>', ':vertical resize +3<CR>', { desc = 'Increase window size (vertical)' })
 
 -- Navigate buffers
-vim.keymap.set('n', '<S-l>', ':bnext<CR>', { desc = 'Next buffer' })
-vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<S-l>', ':BufferNext<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<S-h>', ':BufferPrevious<CR>', { desc = 'Previous buffer' })
 
 -- Delete buffer
-vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = 'Delete buffer' })
+vim.keymap.set('n', '<leader>bd', ':BufferClose<CR>', { desc = 'Delete buffer' })
 
 -- Tab management
 vim.keymap.set('n', '<leader>to', ':tabnew<CR>', { desc = 'New tab' })
