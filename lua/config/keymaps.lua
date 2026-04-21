@@ -5,12 +5,6 @@ map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
 map('n', ']d', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix list' })
 
--- Window splits
-map('n', '<leader>sv', '<C-w>v', { desc = 'Split vertical' })
-map('n', '<leader>sh', '<C-w>s', { desc = 'Split horizontal' })
-map('n', '<leader>se', '<C-w>=', { desc = 'Equalize windows' })
-map('n', '<leader>sx', ':close<CR>', { desc = 'Close window' })
-
 -- Window resize
 map('n', '<C-Up>', ':resize +3<CR>', { desc = 'Resize up' })
 map('n', '<C-Down>', ':resize -3<CR>', { desc = 'Resize down' })
