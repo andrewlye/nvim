@@ -21,7 +21,6 @@ return {
     'mason-org/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
-    'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -73,7 +72,7 @@ return {
     })
 
     vim.lsp.config('*', {
-      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      capabilities = require('blink.cmp').get_lsp_capabilities(),
     })
 
     for name, cfg in pairs(servers) do
