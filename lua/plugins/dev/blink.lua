@@ -9,6 +9,7 @@ return {
       ['<C-n>'] = { 'select_next', 'fallback' },
       ['<C-p>'] = { 'select_prev', 'fallback' },
       ['<C-Space>'] = { 'show', 'fallback' },
+      ['<C-e>'] = { 'hide', 'fallback' },
       ['<C-f>'] = { 'snippet_forward', 'fallback' },
       ['<C-b>'] = { 'snippet_backward', 'fallback' },
       ['<Up>'] = { 'hide', 'fallback' },
