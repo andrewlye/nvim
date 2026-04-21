@@ -15,7 +15,7 @@ return {
       ['<Down>'] = { 'hide', 'fallback' },
     },
     completion = {
-      list = { selection = { preselect = false, auto_insert = false } },
+      list = { selection = { preselect = true, auto_insert = false } },
       menu = { border = 'rounded' },
       documentation = {
         auto_show = true,
