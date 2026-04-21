@@ -5,6 +5,7 @@ vim.g.maplocalleader = ' '
 require 'config.options'
 require 'config.keymaps'
 require 'config.autocmds'
+require 'config.scratch'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
