@@ -40,7 +40,7 @@ return {
         map('gd', require('telescope.builtin').lsp_definitions, 'Goto definition')
         map('gr', require('telescope.builtin').lsp_references, 'Goto references')
         map('gI', require('telescope.builtin').lsp_implementations, 'Goto implementation')
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type definition')
+        map('<leader>dt', require('telescope.builtin').lsp_type_definitions, 'Type definition')
         map('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document symbols')
         map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace symbols')
         map('<leader>rn', vim.lsp.buf.rename, 'Rename')

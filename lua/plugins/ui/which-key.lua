@@ -26,7 +26,6 @@ return {
     },
     spec = {
       { '<leader>b', group = '[B]uffer' },
-      { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
       { '<leader>d', group = '[D]ocument' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       { '<leader>r', group = '[R]ename' },
