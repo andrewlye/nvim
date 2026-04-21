@@ -7,6 +7,9 @@ local servers = {
   basedpyright = {},
   ruff = {},
   clangd = {},
+  rust_analyzer = {},
+  marksman = {},
+  texlab = {},
 }
 
 local extra_tools = { 'stylua' }
