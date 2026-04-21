@@ -6,7 +6,16 @@ local servers = {
   },
   basedpyright = {},
   ruff = {},
-  clangd = {},
+  clangd = {
+    root_markers = {
+      '.clangd',
+      '.clang-tidy',
+      '.clang-format',
+      'compile_commands.json',
+      'compile_flags.txt',
+      'configure.ac',
+    },
+  },
   rust_analyzer = {},
   marksman = {},
   texlab = {},
