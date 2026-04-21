@@ -1,10 +1,18 @@
 local state = { buf = nil, win = nil }
 
+local function close()
+  if state.win and vim.api.nvim_win_is_valid(state.win) then
+    vim.api.nvim_win_close(state.win, true)
+    state.win = nil
+  end
+end
+
 local function create_buf()
   local buf = vim.api.nvim_create_buf(false, true)
   vim.bo[buf].bufhidden = 'hide'
   vim.bo[buf].swapfile = false
   vim.bo[buf].filetype = 'markdown'
+  vim.keymap.set('n', '<Esc><Esc>', close, { buffer = buf, desc = 'Close scratch' })
   return buf
 end
 
@@ -26,8 +34,7 @@ end
 
 local function toggle()
   if state.win and vim.api.nvim_win_is_valid(state.win) then
-    vim.api.nvim_win_close(state.win, true)
-    state.win = nil
+    close()
     return
   end
   if not state.buf or not vim.api.nvim_buf_is_valid(state.buf) then
