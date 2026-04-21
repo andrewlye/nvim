@@ -12,7 +12,6 @@ local function create_buf()
   vim.bo[buf].bufhidden = 'hide'
   vim.bo[buf].swapfile = false
   vim.bo[buf].filetype = 'markdown'
-  vim.keymap.set('n', '<Esc><Esc>', close, { buffer = buf, desc = 'Close scratch' })
   return buf
 end
 

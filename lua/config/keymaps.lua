@@ -20,6 +20,13 @@ map('n', '<leader>th', ':tabp<CR>', { desc = 'Previous tab' })
 map('n', 'x', '"_x', { desc = 'Delete w/o register' })
 map('n', '<Esc>', ':nohl<CR>', { desc = 'Clear search highlights' })
 
+map('n', '<Esc><Esc>', function()
+  local win = vim.api.nvim_get_current_win()
+  if vim.api.nvim_win_get_config(win).relative ~= '' then
+    vim.api.nvim_win_close(win, true)
+  end
+end, { desc = 'Close floating window' })
+
 -- Visual: keep selection when indenting
 map('v', '<', '<gv', { desc = 'Indent left' })
 map('v', '>', '>gv', { desc = 'Indent right' })
