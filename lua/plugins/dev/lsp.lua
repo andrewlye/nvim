@@ -7,6 +7,7 @@ local servers = {
   basedpyright = {},
   ruff = {},
   clangd = {
+    cmd = { 'clangd', '--header-insertion=never' },
     root_markers = {
       '.clangd',
       '.clang-tidy',
