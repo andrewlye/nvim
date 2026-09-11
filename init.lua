@@ -1,17 +1,23 @@
 vim.g.have_nerd_font = true
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = ',' -- filetype-local maps (ftplugin/*.lua); <leader> stays global
 
 require 'config.options'
 require 'config.keymaps'
 require 'config.autocmds'
+require 'config.diagnostics'
 require 'config.scratch'
+require 'config.repl'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
   vim.fn.system {
-    'git', 'clone', '--filter=blob:none', '--branch=stable',
-    'https://github.com/folke/lazy.nvim.git', lazypath,
+    'git',
+    'clone',
+    '--filter=blob:none',
+    '--branch=stable',
+    'https://github.com/folke/lazy.nvim.git',
+    lazypath,
   }
 end
 vim.opt.rtp:prepend(lazypath)

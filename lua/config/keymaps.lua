@@ -1,8 +1,6 @@
 local map = vim.keymap.set
 
--- Diagnostics
-map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
-map('n', ']d', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
+-- Diagnostics ([d / ]d are Neovim builtins, :help ]d-default)
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix list' })
 
 -- Window resize
@@ -10,6 +8,20 @@ map('n', '<C-Up>', ':resize +3<CR>', { desc = 'Resize up' })
 map('n', '<C-Down>', ':resize -3<CR>', { desc = 'Resize down' })
 map('n', '<C-Left>', ':vertical resize -3<CR>', { desc = 'Resize left' })
 map('n', '<C-Right>', ':vertical resize +3<CR>', { desc = 'Resize right' })
+
+-- Window splits
+map('n', '<C-w>v', '<C-w>v', { desc = 'Vertical split' })
+map('n', '<C-w>h', '<C-w>s', { desc = 'Horizontal split' })
+map('n', '<C-w>x', '<C-w>q', { desc = 'Close split' })
+map('n', '<C-w>d', '<C-w>o', { desc = 'Close all other splits' })
+map('n', '<C-w>f', function()
+  if vim.t.zoomed then
+    vim.cmd 'tabclose'
+  else
+    vim.cmd 'tab split'
+    vim.t.zoomed = true
+  end
+end, { desc = 'Zoom toggle' })
 
 -- Tabs
 map('n', '<leader>to', ':tabnew<CR>', { desc = 'New tab' })
@@ -31,9 +43,6 @@ end, { desc = 'Close floating window' })
 map('v', '<', '<gv', { desc = 'Indent left' })
 map('v', '>', '>gv', { desc = 'Indent right' })
 
--- Move lines in visual
-map('v', '<A-j>', ':m .+1<CR>==', { desc = 'Move line down' })
-map('v', '<A-k>', ':m .-2<CR>==', { desc = 'Move line up' })
 map('v', 'p', '"_dP', { desc = 'Paste without yank' })
 
 -- Move blocks in visual-block

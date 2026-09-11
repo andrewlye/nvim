@@ -1,0 +1,11 @@
+.DS_Store
+
+__pycache__/
+*.pyc
+
+# IPython profile runtime state
+tools/repl/profile/history.sqlite*
+tools/repl/profile/db/
+tools/repl/profile/log/
+tools/repl/profile/pid/
+tools/repl/profile/security/

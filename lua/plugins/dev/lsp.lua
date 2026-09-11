@@ -47,18 +47,23 @@ return {
           vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        map('gd', require('telescope.builtin').lsp_definitions, 'Goto definition')
-        map('gr', require('telescope.builtin').lsp_references, 'Goto references')
-        map('gI', require('telescope.builtin').lsp_implementations, 'Goto implementation')
-        map('<leader>dt', require('telescope.builtin').lsp_type_definitions, 'Type definition')
-        map('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document symbols')
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace symbols')
-        map('<leader>rn', vim.lsp.buf.rename, 'Rename')
-        map('<leader>ca', vim.lsp.buf.code_action, 'Code action')
-        map('K', vim.lsp.buf.hover, 'Hover documentation')
+        -- Telescope pickers bound to Neovim's own LSP keys (:help lsp-defaults), so
+        -- the builtin mnemonics stay valid and nothing sits under the `gr` prefix
+        -- waiting on 'timeoutlen'. grn (rename) and gra (code action) are left to
+        -- the defaults.
+        local tb = require 'telescope.builtin'
+        map('gd', tb.lsp_definitions, 'Goto definition')
         map('gD', vim.lsp.buf.declaration, 'Goto declaration')
+        map('grr', tb.lsp_references, 'Goto references')
+        map('gri', tb.lsp_implementations, 'Goto implementation')
+        map('grt', tb.lsp_type_definitions, 'Type definition')
+        map('<leader>ds', tb.lsp_document_symbols, 'Document symbols')
+        map('<leader>ws', tb.lsp_dynamic_workspace_symbols, 'Workspace symbols')
+        -- K is kept: Neovim only installs its own K->hover when 'keywordprg' is
+        -- untouched, and the Python ftplugin sets it to pydoc.
+        map('K', vim.lsp.buf.hover, 'Hover documentation')
 
-        if client and client:supports_method('textDocument/documentHighlight') then
+        if client and client:supports_method 'textDocument/documentHighlight' then
           local hl = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             buffer = event.buf,

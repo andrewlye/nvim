@@ -1,15 +1,18 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  branch = 'master',
   build = ':TSUpdate',
   dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
   opts = {
     ensure_installed = {
       'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc',
-      'markdown', 'python', 'rust', 'vim', 'vimdoc',
+      'markdown', 'markdown_inline', 'python', 'rust', 'vim', 'vimdoc',
     },
     auto_install = true,
     highlight = { enable = true },
-    indent = { enable = true },
+    -- Treesitter indent is unreliable while typing C/C++ (incomplete code →
+    -- ERROR nodes → no indent). Disable so native `cindent` handles them.
+    indent = { enable = true, disable = { 'cmake', 'c', 'cpp' } },
     textobjects = {
       select = {
         enable = true,

@@ -1,0 +1,8 @@
+#!/bin/sh
+# IPython with the usual data stack in a cached uv environment.
+# Inside a uv project, the project's environment is layered underneath so
+# project imports work; anywhere else it's a standalone throwaway env.
+here="$(cd "$(dirname "$0")" && pwd)"
+export MPLBACKEND=Agg
+exec uv run --with "ipython,numpy,pandas,polars,pyarrow,matplotlib,duckdb" \
+  ipython --profile-dir="$here/profile" "$@"
